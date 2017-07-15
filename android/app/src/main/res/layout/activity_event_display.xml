@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:uber="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="io.picopalette.apps.event_me.Activities.EventDisplayActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView2">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/eventPicAndState"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/eventPic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="190dp"
+                    android:scaleType="fitXY"
+                    />
+
+                <TextView
+                    android:id="@+id/eventStatus"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_height="30dp"
+                    android:textSize="17sp"
+                    android:text="Ongoing Event"
+                    android:background="#008000"
+                    android:textColor="#ffffff"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/eventName"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_below="@+id/eventPicAndState"
+                android:text="Event's Name"
+                android:paddingTop="9dp"
+                android:textSize="42sp"
+                android:background="@color/colorPrimary"
+                android:textColor="#ffffff"
+                android:textAlignment="center"
+                />
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/eventPicAndState"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/cardu"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="79dp"
+                app:cardElevation="15dp"
+                app:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_below="@+id/eventName"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:layout_weight="0.2"
+                            app:srcCompat="@drawable/ic_calen" />
+
+                        <TextView
+                            android:id="@+id/eventDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.8"
+                            android:text="Date"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/dateAndTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:layout_weight="0.2"
+                            app:srcCompat="@drawable/ic_clock" />
+
+                        <TextView
+                            android:id="@+id/eventTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.8"
+                            android:text="Time"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_below="@+id/cardu"
+                android:layout_marginTop="10dp"
+                android:layout_height="290dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                app:cardElevation="15dp"
+                android:id="@+id/card2"
+                app:contentPadding="16dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="290dp"
+                    android:id="@+id/map_card">
+                    <LinearLayout
+                        android:id="@+id/eventPlace"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            app:srcCompat="@drawable/ic_location" />
+                        <TextView
+                            android:id="@+id/eventPlaceName"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="Place"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginBottom="7dp"
+                            android:textSize="15sp"/>
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/navigation_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            app:srcCompat= "@drawable/ic_directions_black_24dp"/>
+                    </LinearLayout>
+
+                    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:tools="http://schemas.android.com/tools"
+                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/eventPlace"
+                        android:id="@+id/map2"
+                        android:layout_height="250dp" />
+
+                </RelativeLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/descCard"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/card2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="About the event...."
+                        android:textColor="@color/colorPrimary"
+                        android:layout_margin="7dp"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:id="@+id/descTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="5dp"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/dark_blue_theme"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:text="Ends at"
+                            android:textSize="13sp"
+                            android:textColor="@color/colorPrimary"
+                            android:layout_margin="7dp"
+                            />
+                        <TextView
+                            android:id="@+id/endTimeTextView"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:textSize="15sp"
+                            android:layout_margin="7dp"
+                            android:layout_height="match_parent"
+                            android:textColor="@color/dark_blue_theme"
+                            />
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/p_list_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/descCard"
+                android:text="Participants"
+                android:textSize="19sp"
+                android:textColor="@color/dark_blue_theme"
+                android:layout_margin="10dp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/event_display_rec_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_below="@id/p_list_title">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event_display_rec_view"
+                android:id="@+id/linear"
+                android:padding="8dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/shareView"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:text="Share my Location"
+                    android:gravity="start"
+                    android:textColor="#666666"
+                    android:layout_height="wrap_content" />
+                <Switch
+                    android:id="@+id/eve_switch2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" />
+            </LinearLayout>
+            <android.support.v7.widget.CardView
+                android:id="@+id/card3"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_below="@id/linear"
+                app:cardElevation="25dp"
+                app:contentPadding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:orientation="horizontal">
+                    <android.support.v7.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp"
+                        app:srcCompat="@drawable/ic_tracking"
+                        android:layout_weight="1"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="View locations of Participants"
+                        android:textSize="15sp"
+                        android:layout_weight="2"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <com.uber.sdk.android.rides.RideRequestButton
+                android:id="@+id/uberRequestButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/card3"
+                uber:ub__style="black" />
+
+            <LinearLayout
+                android:layout_below="@+id/uberRequestButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/joinEvent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Join Event"
+                    android:textColor="#008000"
+                    android:background="@color/white"
+                    android:textSize="18sp"
+                    />
+                <Button
+                    android:id="@+id/leaveEvent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Leave Event"
+                    android:background="@color/white"
+                    android:textColor="@color/ended_red"
+                    android:textSize="18sp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tobehiddenn"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/editEvent"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Edit Event"
+                        android:background="@color/white"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18sp"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:layout_height="match_parent"
+                        android:background="@color/white">
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/deleteEvent"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Delete Event"
+                        android:background="@color/white"
+                        android:textColor="@color/ended_red"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+</RelativeLayout>
